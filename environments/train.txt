@@ -1,0 +1,7 @@
+# Isolated environment; never install vLLM or benchmark harnesses here.
+torch==2.7.1
+transformers==4.54.1
+peft==0.17.1
+accelerate==1.10.1
+datasets==4.0.0
+safetensors>=0.6,<0.8

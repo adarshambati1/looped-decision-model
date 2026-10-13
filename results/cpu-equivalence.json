@@ -1,0 +1,14 @@
+{
+  "kind": "tiny-random-weight CPU correctness test; NOT model evaluation",
+  "source_revision": "574fa66cb8bf5abdc979642d01cf2b79b16bfab1",
+  "max_abs_errors_per_pass": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "shared_prefix_equivalence": true,
+  "B_first_four_equal_A": true,
+  "B_prefix_four_immutable": true,
+  "soft_loss_backprop": true
+}

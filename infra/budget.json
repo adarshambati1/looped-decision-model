@@ -1,0 +1,16 @@
+{
+  "total_authorized_usd": 100,
+  "auto_reload_extends_authorization": false,
+  "max_simultaneous_gpus": 1,
+  "preferred_gpu": "NVIDIA A100-SXM4-80GB",
+  "preferred_cloud": "SECURE",
+  "quoted_gpu_usd_per_hour": 1.79,
+  "quote_is_not_a_reservation": true,
+  "initial_lease_hours": 1,
+  "max_hourly_gpu_usd_without_reapproval": 2.0,
+  "require_provider_side_deadline": true,
+  "require_artifact_backup_before_teardown": true,
+  "created_resources": [],
+  "project_spend_usd": 0,
+  "status": "Not provisioned; verify a working cloud-side termination guard before renting."
+}
