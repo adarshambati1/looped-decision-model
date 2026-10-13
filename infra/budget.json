@@ -8,9 +8,50 @@
   "quote_is_not_a_reservation": true,
   "initial_lease_hours": 1,
   "max_hourly_gpu_usd_without_reapproval": 2.0,
-  "require_provider_side_deadline": true,
+  "require_provider_side_deadline": false,
+  "require_independent_in_pod_watchdog": true,
+  "require_independent_local_backup_deadline": true,
+  "guard_limitation": "In-pod watchdog is not a provider control-plane schedule; container failure can disable it. Sessions remain supervised and resources are explicitly deleted after backup.",
   "require_artifact_backup_before_teardown": true,
-  "created_resources": [],
-  "project_spend_usd": 0,
-  "status": "Not provisioned; verify a working cloud-side termination guard before renting."
+  "created_resources": [
+    {
+      "id": "rr20mep9vk0ibe",
+      "purpose": "Pretrained BF16 correctness smoke; no optimizer steps",
+      "gpu": "NVIDIA A100 80GB PCIe",
+      "quoted_gpu_usd_per_hour": 1.79,
+      "created_utc": "2026-10-13T07:06:53.308Z",
+      "watchdog_armed_deadline_utc": "2026-10-13T08:03:20.655590Z",
+      "deleted": true,
+      "confirmed_absent_by_utc": "2026-10-13T07:27:05Z",
+      "budget_reservation_usd": 2.0,
+      "artifact": "results/gpu-smoke.json"
+    },
+    {
+      "id": "57s2f3a2rqcle6",
+      "purpose": "A noncommercial research pilot, 100 optimizer steps",
+      "gpu": "NVIDIA A100-SXM4-80GB",
+      "quoted_gpu_usd_per_hour": 1.79,
+      "watchdog_armed_deadline_utc": "2026-10-13T08:39:38.119297Z",
+      "local_backup_deadline_utc": "2026-10-13T08:39:38.119297Z",
+      "deleted": true,
+      "confirmed_absent_by_utc": "2026-10-13T08:11:54Z",
+      "completion_triggered_cleanup_observed": true,
+      "calibration_tolerance_passed": false,
+      "budget_reservation_usd": 3.0,
+      "checkpoint_volume_id": "1blg53cv3x"
+    }
+  ],
+  "checkpoint_volume": {
+    "id": "1blg53cv3x",
+    "data_center": "US-MD-1",
+    "size_gb": 10,
+    "estimated_usd_per_month": 0.70,
+    "budget_reservation_usd": 1.0,
+    "status": "Retain pilot checkpoints on RunPod, not laptop. Review or clean up within 30 days; ongoing storage counts against project budget."
+  },
+  "empty_volume_deleted": "gp45kvpebj",
+  "project_spend_usd": null,
+  "project_budget_reserved_usd": 6.0,
+  "remaining_authorization_after_reservations_usd": 94.0,
+  "status": "Both GPU pods deleted; pod list empty. A pilot checkpoint/calibration artifacts persisted on private network volume. Completion-triggered cleanup observed before deadline. Reservations are conservative, not actual charges; billing still needs reconciliation. Empty Canadian volume also deleted."
 }

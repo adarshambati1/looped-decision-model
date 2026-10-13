@@ -1,0 +1,38 @@
+{
+  "scope": "Noncommercial research pilot only; not blanket model-release clearance",
+  "records": [
+    {
+      "dataset": "google/boolq",
+      "status": "Research pilot permitted under CC-BY-SA-3.0; attribution and share-alike notices retained",
+      "evidence_url": "https://github.com/google-research-datasets/boolean-questions/blob/master/README.md",
+      "evidence_sha256": "0afe70d7cdbb644637592212f0cb15339389910bf00f35764ec3c545257aa663"
+    },
+    {
+      "dataset": "allenai/ai2_arc",
+      "status": "Noncommercial research pilot only. Original archive terms conflict with HF card CC-BY-SA-4.0 tag; no redistribution/commercial permission inferred. Resolve before model release.",
+      "evidence_url": "https://ai2-public-datasets.s3.amazonaws.com/arc/ARC-V1-Feb2018.zip",
+      "archive_member": "ARC-V1-Feb2018-2/README.txt",
+      "evidence_sha256": "4f9f190ab3398a1278dc4940335beaa2c9e9a69a15ffd8e894a69d2d7697f81a",
+      "notice_excerpt": "Do not distribute; Non-commercial use only"
+    },
+    {
+      "dataset": "SetFit/sst5",
+      "status": "Excluded from pilot. Source repo and original Stanford page inspected; no explicit license found. HF stanfordnlp/sst and stanfordnlp/sst2 declare unknown.",
+      "evidence_urls": [
+        "https://nlp.stanford.edu/sentiment/",
+        "https://github.com/stanfordnlp/sentiment-treebank",
+        "https://huggingface.co/datasets/SetFit/sst5"
+      ]
+    },
+    {
+      "dataset": "LocalLLaMA/typed-decisions",
+      "status": "Apache-2.0 per pinned publisher card; preserve notices",
+      "evidence": "results/upstream-metadata.json"
+    },
+    {
+      "dataset": "tau/commonsense_qa",
+      "status": "MIT per pinned publisher card; preserve attribution",
+      "evidence": "results/upstream-metadata.json"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "purpose": "non-release pilot; SST5 excluded",
+  "source_counts_before_filter": {
+    "LocalLLaMA/typed-decisions": 6000,
+    "allenai/ai2_arc/ARC-Easy": 2251,
+    "allenai/ai2_arc/ARC-Challenge": 1119,
+    "tau/commonsense_qa": 9741,
+    "google/boolq": 9427
+  },
+  "rejected_examples": 114,
+  "rejected_groups": 89,
+  "splits": {
+    "train": {
+      "examples": 29995,
+      "groups": 23999,
+      "by_source": {
+        "LocalLLaMA/typed-decisions": 5725,
+        "allenai/ai2_arc/ARC-Easy": 2157,
+        "allenai/ai2_arc/ARC-Challenge": 1056,
+        "tau/commonsense_qa": 9196,
+        "google/boolq": 8863,
+        "synthetic/multihop": 1511,
+        "synthetic/balance": 1487
+      },
+      "by_type": {
+        "choice": 17124,
+        "noul": 10581,
+        "score": 2290
+      },
+      "synthetic_fraction": 0.09994999166527754,
+      "synthetic_steps": {
+        "6": 396,
+        "2": 366,
+        "7": 357,
+        "1": 345,
+        "3": 383,
+        "5": 397,
+        "4": 409,
+        "8": 345
+      }
+    },
+    "heldout": {
+      "examples": 1587,
+      "groups": 1292,
+      "by_source": {
+        "LocalLLaMA/typed-decisions": 275,
+        "allenai/ai2_arc/ARC-Easy": 94,
+        "allenai/ai2_arc/ARC-Challenge": 63,
+        "tau/commonsense_qa": 545,
+        "google/boolq": 450,
+        "synthetic/multihop": 68,
+        "synthetic/balance": 92
+      },
+      "by_type": {
+        "choice": 945,
+        "noul": 532,
+        "score": 110
+      },
+      "synthetic_fraction": 0.10081915563957151,
+      "synthetic_steps": {
+        "1": 21,
+        "4": 17,
+        "6": 16,
+        "2": 23,
+        "3": 27,
+        "5": 18,
+        "7": 22,
+        "8": 16
+      }
+    }
+  },
+  "source_revisions": [
+    {
+      "source": "LocalLLaMA/typed-decisions",
+      "config": "all",
+      "revision": "c806f6c69d734f29436f25536138547031a673d6",
+      "license": "apache-2.0",
+      "split": "train"
+    },
+    {
+      "source": "allenai/ai2_arc",
+      "config": "ARC-Easy",
+      "revision": "210d026faf9955653af8916fad021475a3f00453",
+      "license": [
+        "cc-by-sa-4.0"
+      ],
+      "split": "train"
+    },
+    {
+      "source": "allenai/ai2_arc",
+      "config": "ARC-Challenge",
+      "revision": "210d026faf9955653af8916fad021475a3f00453",
+      "license": [
+        "cc-by-sa-4.0"
+      ],
+      "split": "train"
+    },
+    {
+      "source": "tau/commonsense_qa",
+      "config": null,
+      "revision": "94630fe30dad47192a8546eb75f094926d47e155",
+      "license": [
+        "mit"
+      ],
+      "split": "train"
+    },
+    {
+      "source": "google/boolq",
+      "config": null,
+      "revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+      "license": [
+        "cc-by-sa-3.0"
+      ],
+      "split": "train"
+    }
+  ],
+  "evaluation_index_sha256": "9186e85769d40273e28ab39db14a0bc18c12d9cc8862de5b58b34f9c9de1d405"
+}

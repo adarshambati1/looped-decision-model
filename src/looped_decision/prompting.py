@@ -45,12 +45,36 @@ def question_suffix(question: Question, codes=CODE_CANDIDATES):
             ("false", question.criteria.false if question.criteria else None),
             ("true", question.criteria.true if question.criteria else None),
         ]
-    lines = ["\n\nQuestion: " + render(question.instructions)]
+    return option_suffix(question.instructions, options, codes)
+
+
+def option_suffix(instructions, options, codes=CODE_CANDIDATES):
+    lines = ["\n\nQuestion: " + render(instructions)]
     for code, (name, description) in zip(codes, options):
         detail = "" if description is None else ": " + render(description)
         lines.append(f"({code}) {name}{detail}")
     lines.append("Answer: (")
     return "\n".join(lines)
+
+
+def prepare_example(tokenizer, item, max_tokens=4096):
+    """Training suffix uses the exact serving renderer, including descriptions."""
+    descriptions = item.descriptions or (None,) * len(item.options)
+    suffix = option_suffix(item.instructions, zip(item.options, descriptions))
+    question_ids = tokenizer.encode(suffix, add_special_tokens=False)
+    budget = max_tokens - len(question_ids)
+    if budget < 1:
+        raise ValueError(f"Question too long: {item.id}")
+    state_ids = tokenizer.encode(item.state, add_special_tokens=False)
+    if item.conversation and len(state_ids) > budget:
+        turns = json.loads(item.state)
+        if not isinstance(turns, list):
+            raise ValueError("Conversation must be serialized turns")
+        while len(turns) > 1 and len(state_ids) > budget:
+            turns.pop(0)
+            state_ids = tokenizer.encode(render(turns), add_special_tokens=False)
+    state_ids = state_ids[-budget:] if item.conversation else state_ids[:budget]
+    return state_ids, question_ids
 
 
 @dataclass(frozen=True)

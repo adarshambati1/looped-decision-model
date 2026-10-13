@@ -1,0 +1,155 @@
+{
+  "kind": "evaluation input decontamination index ONLY; no scores or labels exported",
+  "normalization": "NFKC + casefold + Unicode word tokens",
+  "n": 13,
+  "sources": [
+    {
+      "source": "Hanno-Labs/decision-bench",
+      "revision": "071b7b2d2e1504c89e1e5a811a3f82e1bfe3aedb",
+      "rows": 23900,
+      "files": [
+        {
+          "file": "data/eval-00000-of-00001.parquet",
+          "sha256": "d9dd5be8e0944a7ceadfcac6cf8f9d17aab256093acff23c6de6a037ad6e55f6"
+        }
+      ]
+    },
+    {
+      "source": "lukaemon/bbh",
+      "revision": "982bb89fd79532a8ac676a61fc42eb1aeec63f99",
+      "rows": 6511,
+      "files": [
+        {
+          "file": "boolean_expressions/test-00000-of-00001.parquet",
+          "sha256": "c5de3d5c30fecdee9fdd6348f4fb324f64be8597f28e9d60d4e647e06df28b27"
+        },
+        {
+          "file": "causal_judgement/test-00000-of-00001.parquet",
+          "sha256": "787b07b98aaaaeda52da57852a61fa89fa136d7026008e3f4958293384949de3"
+        },
+        {
+          "file": "date_understanding/test-00000-of-00001.parquet",
+          "sha256": "886b90d48cc66c87d26c36d64ef8119523b2021aa02dcc78ea326d7595440e1f"
+        },
+        {
+          "file": "disambiguation_qa/test-00000-of-00001.parquet",
+          "sha256": "94f25b514de46673114f229eea71a88b22f5777fc852f4b71ccb0291fd65b0de"
+        },
+        {
+          "file": "dyck_languages/test-00000-of-00001.parquet",
+          "sha256": "041cf145093a075070392bb267f580d3035b5faa922a72c9a58cf70de295982b"
+        },
+        {
+          "file": "formal_fallacies/test-00000-of-00001.parquet",
+          "sha256": "dc98f32c2cb21deceb67dae775dcd6de03ba8c067ac280f43f7dd8973fcc807c"
+        },
+        {
+          "file": "geometric_shapes/test-00000-of-00001.parquet",
+          "sha256": "83cf995f268296d0c510502f879932419f2d6a2ff1a0574746b15c53e9348967"
+        },
+        {
+          "file": "hyperbaton/test-00000-of-00001.parquet",
+          "sha256": "e231956d054f3bfa868482348e9c089d41239cc5a1aafe4e1b08a6fcbd0474c7"
+        },
+        {
+          "file": "logical_deduction_five_objects/test-00000-of-00001.parquet",
+          "sha256": "413dd1a9abdaeffa6ec7869c21914050f0604adec94048c60071b80889189a8e"
+        },
+        {
+          "file": "logical_deduction_seven_objects/test-00000-of-00001.parquet",
+          "sha256": "50912eb454be853c03409555f5aae43ff3a0bad1775ee29c13f917bee972105a"
+        },
+        {
+          "file": "logical_deduction_three_objects/test-00000-of-00001.parquet",
+          "sha256": "69666640c655c70e4ee6628dd2475e911981b0e828e43ac69bbb9d8144144586"
+        },
+        {
+          "file": "movie_recommendation/test-00000-of-00001.parquet",
+          "sha256": "bc9e7238d45633dd1fd17ca6bef47fe07f1b709e8d1539c7002c2e7da0add4fe"
+        },
+        {
+          "file": "multistep_arithmetic_two/test-00000-of-00001.parquet",
+          "sha256": "4f7194caf79b38fce0db1a6aa42541692d4f5e2cbbd199dd68cb6901c69b1e85"
+        },
+        {
+          "file": "navigate/test-00000-of-00001.parquet",
+          "sha256": "ea2c81b9b19321c0183f2c4b2d59197af01c08d41247105183733b2cfbad3658"
+        },
+        {
+          "file": "object_counting/test-00000-of-00001.parquet",
+          "sha256": "81f3549f01589125e5d7bee1f5a261a0611c418c1b3bee6b9bc25136b5915fc0"
+        },
+        {
+          "file": "penguins_in_a_table/test-00000-of-00001.parquet",
+          "sha256": "ac7e9c4b868eda0aefcbad9b6e0f3a9f6a8f22b47e413858599f899e28a61ffd"
+        },
+        {
+          "file": "reasoning_about_colored_objects/test-00000-of-00001.parquet",
+          "sha256": "5c93a11b4ced66cc2afe4cd1348a36666eba10a2aeaa023c0e3609102f4ad130"
+        },
+        {
+          "file": "ruin_names/test-00000-of-00001.parquet",
+          "sha256": "d75882ee191fc60464c4c8cb6d90085a565de4476f58c8ada0fe31f0d18e3a24"
+        },
+        {
+          "file": "salient_translation_error_detection/test-00000-of-00001.parquet",
+          "sha256": "fd56dfa6d5a3c00fab3cf0a3b951a4cb2d5daf6cd0a564b4229dbc7fee13ba5e"
+        },
+        {
+          "file": "snarks/test-00000-of-00001.parquet",
+          "sha256": "4aa85c7c94ba0b6de3e5245af6af2dac4df2b979e8fc944513a317d20d77382e"
+        },
+        {
+          "file": "sports_understanding/test-00000-of-00001.parquet",
+          "sha256": "0f67780a329b4b4a22698d19f95f165b68831aad18c59236834b2c7272d37008"
+        },
+        {
+          "file": "temporal_sequences/test-00000-of-00001.parquet",
+          "sha256": "b12750a723e54541eb27f6f534d5f91650e8d406e81cd5ac23c3ee7f780ad8ce"
+        },
+        {
+          "file": "tracking_shuffled_objects_five_objects/test-00000-of-00001.parquet",
+          "sha256": "ba3cdb666a305b3bd87be668e16c66b6bc7ada0a71cd53bc25f65932a814d00a"
+        },
+        {
+          "file": "tracking_shuffled_objects_seven_objects/test-00000-of-00001.parquet",
+          "sha256": "23f26fa036a7314b86e6eca4ad985218930645b47a31f920b65da70b22f98227"
+        },
+        {
+          "file": "tracking_shuffled_objects_three_objects/test-00000-of-00001.parquet",
+          "sha256": "b3d557e426ac57f4b2194b4be5d810eb4425ff5a2c776d9b0bb6572b246c4564"
+        },
+        {
+          "file": "web_of_lies/test-00000-of-00001.parquet",
+          "sha256": "ad0a5707016259f060927a7a777bb0434c5e5293da0f6570e4e185919c434f11"
+        },
+        {
+          "file": "word_sorting/test-00000-of-00001.parquet",
+          "sha256": "7c623d20c1e38e7b1b67213d0933b7b24b18edb5b9788a33ae0b05add40f7201"
+        }
+      ]
+    },
+    {
+      "source": "fstandhartinger/jevbench/public",
+      "revision": "7625ecb1b075cfe4d09d34141d353325825eea1d",
+      "rows": 231,
+      "files": [
+        {
+          "file": "datasets/public/easy.jsonl",
+          "sha256": "231df3c2c8e88a1a8c137ebe85de96ba70fabd330849098ac7b3c52c70b7172b"
+        },
+        {
+          "file": "datasets/public/hard.jsonl",
+          "sha256": "89e9e6becb33ed88c1de7d42dcc87531b2fb64cfaef4e1986faf7c37b3f80ebb"
+        },
+        {
+          "file": "datasets/public/original.jsonl",
+          "sha256": "5c2414edb3006b8bfcb70fda433f0f9ca015759433849f8d3104328a1f7c4180"
+        }
+      ]
+    }
+  ],
+  "unique_grams": 7934363,
+  "index_sha256": "9186e85769d40273e28ab39db14a0bc18c12d9cc8862de5b58b34f9c9de1d405",
+  "coverage": "Pinned public DecisionBench, BBH and all JevBench public tiers. Private unavailable JevBench data cannot be indexed."
+}

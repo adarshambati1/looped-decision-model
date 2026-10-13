@@ -136,27 +136,49 @@ def select_threshold(rows, temperatures, max_passes, tolerance=0.01):
     """
     if not rows or not 0 <= tolerance <= 1:
         raise ValueError("Need held-out rows and valid accuracy tolerance")
+    if max_passes < 1:
+        raise ValueError("Invalid pass cap")
     candidates = {0.0, 1.0}
-    maximum_correct = []
-    for row in rows:
+    confidences, correct, events = [], [], []
+    for i, row in enumerate(rows):
         if len(row.logits) < max_passes:
             raise ValueError("Missing maximum-pass output")
-        for k in range(1, max_passes + 1):
-            p = softmax(row.logits[k - 1], temperatures[(row.kind, k)])
-            if k < max_passes:
-                c = float(p.max())
-                candidates.add(c)
-                candidates.add(min(1.0, float(np.nextafter(c, np.inf))))
-        maximum_correct.append(p.argmax() == row.target.argmax())
-    baseline = float(np.mean(maximum_correct))
-    feasible = []
+        probabilities = [
+            softmax(row.logits[k], temperatures[(row.kind, k + 1)]) for k in range(max_passes)
+        ]
+        confidences.append([float(p.max()) for p in probabilities])
+        correct.append([int(p.argmax() == row.target.argmax()) for p in probabilities])
+        for k, c in enumerate(confidences[-1][:-1]):
+            candidates.add(c)
+            candidates.add(min(1.0, float(np.nextafter(c, np.inf))))
+            events.append((c, i, k))
+    # Exact sweep over the same empirical thresholds as brute force. Each row
+    # only advances K-1 times: O(N K log(N K)), rather than O(N^2 K^2) softmaxes.
+    events.sort()
+    current = [0] * len(rows)
+    pass_total = len(rows)
+    correct_total = sum(values[0] for values in correct)
+    baseline = sum(values[-1] for values in correct) / len(rows)
+    event_index = 0
+    best = None
     for tau in sorted(candidates):
-        summary = policy_summary(rows, temperatures, tau, max_passes)
-        if summary["accuracy"] + 1e-12 >= baseline - tolerance:
-            feasible.append((summary["mean_passes"], -summary["accuracy"], -tau, tau))
-    if not feasible:
+        while event_index < len(events) and events[event_index][0] < tau:
+            _, i, k = events[event_index]
+            event_index += 1
+            if current[i] != k:
+                continue
+            new = k
+            while new < max_passes - 1 and confidences[i][new] < tau:
+                new += 1
+            pass_total += new - k
+            correct_total += correct[i][new] - correct[i][k]
+            current[i] = new
+        if correct_total / len(rows) + 1e-12 >= baseline - tolerance:
+            candidate = (pass_total, -correct_total, -tau, tau)
+            best = candidate if best is None else min(best, candidate)
+    if best is None:
         raise ValueError("No feasible threshold; numerical saturation may force early exits")
-    return min(feasible)[-1]
+    return best[-1]
 
 
 def calibrate(rows: Sequence[Trajectory], max_passes: int):

@@ -20,12 +20,16 @@ class DecisionExample:
     source: str
     group_id: str
     steps: int | None = None
+    descriptions: tuple[str | None, ...] = ()
+    conversation: bool = False
 
     def __post_init__(self):
         if self.kind not in {"choice", "score", "noul"}:
             raise ValueError("Invalid decision kind")
         if not 2 <= len(self.options) <= 64 or len(self.targets) != len(self.options):
             raise ValueError("Invalid option/label shape")
+        if self.descriptions and len(self.descriptions) != len(self.options):
+            raise ValueError("Descriptions must align to options")
         if len(set(self.options)) != len(self.options):
             raise ValueError("Duplicate options")
         if self.kind == "noul" and set(self.options) != {"false", "true"}:
@@ -47,6 +51,7 @@ def permute_options(example, rng: random.Random):
         example,
         options=tuple(example.options[i] for i in order),
         targets=tuple(example.targets[i] for i in order),
+        descriptions=tuple(example.descriptions[i] for i in order) if example.descriptions else (),
     )
 
 
@@ -83,7 +88,14 @@ def ngram_hashes(text, n=13):
 def decontaminate(examples, evaluation_hashes):
     kept, dropped_ids = [], []
     for item in examples:
-        text = "\n".join([item.state, item.instructions, *item.options])
+        text = "\n".join(
+            [
+                item.state,
+                item.instructions,
+                *item.options,
+                *(description or "" for description in item.descriptions),
+            ]
+        )
         if ngram_hashes(text) & evaluation_hashes:
             dropped_ids.append(item.id)
         else:

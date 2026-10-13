@@ -1,0 +1,65 @@
+{
+  "kind": "pretrained BF16 correctness smoke, NOT benchmark/quality/speed evaluation",
+  "base_revision": "574fa66cb8bf5abdc979642d01cf2b79b16bfab1",
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "torch": "2.7.1+cu126",
+  "transformers": "4.54.1",
+  "code_ids_verified": 64,
+  "full_upstream_max_abs": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "prefix_probability_max_abs": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "B_hidden_rms": [
+    [
+      0.7307223677635193,
+      0.6345331072807312
+    ],
+    [
+      0.8138673305511475,
+      0.7248578071594238
+    ],
+    [
+      0.9242950677871704,
+      0.9188397526741028
+    ],
+    [
+      0.9623829126358032,
+      0.9661651849746704
+    ],
+    [
+      0.9678049683570862,
+      0.9688117504119873
+    ],
+    [
+      0.9691988825798035,
+      0.9739895462989807
+    ],
+    [
+      0.9697310924530029,
+      0.9783061742782593
+    ],
+    [
+      0.9701906442642212,
+      0.9810547232627869
+    ]
+  ],
+  "B_first4_equal_A": true,
+  "B_frozen_prefix4": true,
+  "lora_and_head_backward": true,
+  "optimizer_steps": 0,
+  "smoke_loss": 0.7841184735298157,
+  "max_allocated_gpu_bytes": 3990736896,
+  "wall_seconds_including_load": 63.84071027673781
+}

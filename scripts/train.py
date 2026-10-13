@@ -24,20 +24,7 @@ from looped_decision.ouro import (
     attach_lora,
     weighted_pass_loss,
 )
-from looped_decision.prompting import CODE_CANDIDATES, verify_codes
-
-
-def prompt_ids(tokenizer, item):
-    suffix = "\n\nQuestion: " + item.instructions + "\n"
-    suffix += "\n".join(f"({c}) {option}" for c, option in zip(CODE_CANDIDATES, item.options))
-    suffix += "\nAnswer: ("
-    question = tokenizer.encode(suffix, add_special_tokens=False)
-    budget = 4096 - len(question)
-    if budget < 1:
-        raise ValueError(f"Question too long: {item.id}")
-    # Normalized data must already apply conversation truncation at whole turns.
-    state = tokenizer.encode(item.state, add_special_tokens=False)[:budget]
-    return state, question
+from looped_decision.prompting import CODE_CANDIDATES, prepare_example, verify_codes
 
 
 def main():
@@ -72,6 +59,7 @@ def main():
     for line in args.data.read_text().splitlines():
         data = json.loads(line)
         data["options"], data["targets"] = tuple(data["options"]), tuple(data["targets"])
+        data["descriptions"] = tuple(data.get("descriptions", ()))
         rows.append(DecisionExample(**data))
     if not rows:
         raise SystemExit("Empty training set")
@@ -117,7 +105,7 @@ def main():
             batch_loss = 0.0
             for _ in range(args.accumulate):
                 item = permute_options(rng.choice(rows), rng)
-                state_ids, question_ids = prompt_ids(tokenizer, item)
+                state_ids, question_ids = prepare_example(tokenizer, item)
                 passes = model.shared_passes(state_ids, [question_ids], K, args.stage)
                 logits = torch.stack([p.logits[0][:, : len(item.options)] for p in passes])
                 targets = torch.tensor([item.targets], device=logits.device, dtype=torch.float32)

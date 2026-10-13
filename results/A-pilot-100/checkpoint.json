@@ -1,0 +1,364 @@
+{
+  "stage": "A",
+  "base_model": "ByteDance/Ouro-1.4B",
+  "base_revision": "574fa66cb8bf5abdc979642d01cf2b79b16bfab1",
+  "code_ids": [
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    17,
+    47
+  ],
+  "codes": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?",
+  "calibrated": false,
+  "training_manifest": {
+    "purpose": "non-release pilot; NOT full A/B mixture",
+    "split": "train",
+    "train_sha256": "3996b4cfae5f4e00698d2cc9632635d6601191b51c0ba0bb78c724ca805c1fe5",
+    "data_sha256": "3996b4cfae5f4e00698d2cc9632635d6601191b51c0ba0bb78c724ca805c1fe5",
+    "licenses_reviewed": true,
+    "license_review_scope": "Noncommercial research pilot only. ARC original archive terms conflict with HF metadata. No raw data or model redistribution authorized by this manifest.",
+    "license_review": {
+      "scope": "Noncommercial research pilot only; not blanket model-release clearance",
+      "records": [
+        {
+          "dataset": "google/boolq",
+          "status": "Research pilot permitted under CC-BY-SA-3.0; attribution and share-alike notices retained",
+          "evidence_url": "https://github.com/google-research-datasets/boolean-questions/blob/master/README.md",
+          "evidence_sha256": "0afe70d7cdbb644637592212f0cb15339389910bf00f35764ec3c545257aa663"
+        },
+        {
+          "dataset": "allenai/ai2_arc",
+          "status": "Noncommercial research pilot only. Original archive terms conflict with HF card CC-BY-SA-4.0 tag; no redistribution/commercial permission inferred. Resolve before model release.",
+          "evidence_url": "https://ai2-public-datasets.s3.amazonaws.com/arc/ARC-V1-Feb2018.zip",
+          "archive_member": "ARC-V1-Feb2018-2/README.txt",
+          "evidence_sha256": "4f9f190ab3398a1278dc4940335beaa2c9e9a69a15ffd8e894a69d2d7697f81a",
+          "notice_excerpt": "Do not distribute; Non-commercial use only"
+        },
+        {
+          "dataset": "SetFit/sst5",
+          "status": "Excluded from pilot. Source repo and original Stanford page inspected; no explicit license found. HF stanfordnlp/sst and stanfordnlp/sst2 declare unknown.",
+          "evidence_urls": [
+            "https://nlp.stanford.edu/sentiment/",
+            "https://github.com/stanfordnlp/sentiment-treebank",
+            "https://huggingface.co/datasets/SetFit/sst5"
+          ]
+        },
+        {
+          "dataset": "LocalLLaMA/typed-decisions",
+          "status": "Apache-2.0 per pinned publisher card; preserve notices",
+          "evidence": "results/upstream-metadata.json"
+        },
+        {
+          "dataset": "tau/commonsense_qa",
+          "status": "MIT per pinned publisher card; preserve attribution",
+          "evidence": "results/upstream-metadata.json"
+        }
+      ]
+    },
+    "license_review_sha256": "c6506c2b036e72a75afea897f995e34097a32d464e34a3dda5f5e5806e52f36f",
+    "group_split_verified": true,
+    "evaluation_13grams_checked": true,
+    "evaluation_index": {
+      "kind": "evaluation input decontamination index ONLY; no scores or labels exported",
+      "normalization": "NFKC + casefold + Unicode word tokens",
+      "n": 13,
+      "sources": [
+        {
+          "source": "Hanno-Labs/decision-bench",
+          "revision": "071b7b2d2e1504c89e1e5a811a3f82e1bfe3aedb",
+          "rows": 23900,
+          "files": [
+            {
+              "file": "data/eval-00000-of-00001.parquet",
+              "sha256": "d9dd5be8e0944a7ceadfcac6cf8f9d17aab256093acff23c6de6a037ad6e55f6"
+            }
+          ]
+        },
+        {
+          "source": "lukaemon/bbh",
+          "revision": "982bb89fd79532a8ac676a61fc42eb1aeec63f99",
+          "rows": 6511,
+          "files": [
+            {
+              "file": "boolean_expressions/test-00000-of-00001.parquet",
+              "sha256": "c5de3d5c30fecdee9fdd6348f4fb324f64be8597f28e9d60d4e647e06df28b27"
+            },
+            {
+              "file": "causal_judgement/test-00000-of-00001.parquet",
+              "sha256": "787b07b98aaaaeda52da57852a61fa89fa136d7026008e3f4958293384949de3"
+            },
+            {
+              "file": "date_understanding/test-00000-of-00001.parquet",
+              "sha256": "886b90d48cc66c87d26c36d64ef8119523b2021aa02dcc78ea326d7595440e1f"
+            },
+            {
+              "file": "disambiguation_qa/test-00000-of-00001.parquet",
+              "sha256": "94f25b514de46673114f229eea71a88b22f5777fc852f4b71ccb0291fd65b0de"
+            },
+            {
+              "file": "dyck_languages/test-00000-of-00001.parquet",
+              "sha256": "041cf145093a075070392bb267f580d3035b5faa922a72c9a58cf70de295982b"
+            },
+            {
+              "file": "formal_fallacies/test-00000-of-00001.parquet",
+              "sha256": "dc98f32c2cb21deceb67dae775dcd6de03ba8c067ac280f43f7dd8973fcc807c"
+            },
+            {
+              "file": "geometric_shapes/test-00000-of-00001.parquet",
+              "sha256": "83cf995f268296d0c510502f879932419f2d6a2ff1a0574746b15c53e9348967"
+            },
+            {
+              "file": "hyperbaton/test-00000-of-00001.parquet",
+              "sha256": "e231956d054f3bfa868482348e9c089d41239cc5a1aafe4e1b08a6fcbd0474c7"
+            },
+            {
+              "file": "logical_deduction_five_objects/test-00000-of-00001.parquet",
+              "sha256": "413dd1a9abdaeffa6ec7869c21914050f0604adec94048c60071b80889189a8e"
+            },
+            {
+              "file": "logical_deduction_seven_objects/test-00000-of-00001.parquet",
+              "sha256": "50912eb454be853c03409555f5aae43ff3a0bad1775ee29c13f917bee972105a"
+            },
+            {
+              "file": "logical_deduction_three_objects/test-00000-of-00001.parquet",
+              "sha256": "69666640c655c70e4ee6628dd2475e911981b0e828e43ac69bbb9d8144144586"
+            },
+            {
+              "file": "movie_recommendation/test-00000-of-00001.parquet",
+              "sha256": "bc9e7238d45633dd1fd17ca6bef47fe07f1b709e8d1539c7002c2e7da0add4fe"
+            },
+            {
+              "file": "multistep_arithmetic_two/test-00000-of-00001.parquet",
+              "sha256": "4f7194caf79b38fce0db1a6aa42541692d4f5e2cbbd199dd68cb6901c69b1e85"
+            },
+            {
+              "file": "navigate/test-00000-of-00001.parquet",
+              "sha256": "ea2c81b9b19321c0183f2c4b2d59197af01c08d41247105183733b2cfbad3658"
+            },
+            {
+              "file": "object_counting/test-00000-of-00001.parquet",
+              "sha256": "81f3549f01589125e5d7bee1f5a261a0611c418c1b3bee6b9bc25136b5915fc0"
+            },
+            {
+              "file": "penguins_in_a_table/test-00000-of-00001.parquet",
+              "sha256": "ac7e9c4b868eda0aefcbad9b6e0f3a9f6a8f22b47e413858599f899e28a61ffd"
+            },
+            {
+              "file": "reasoning_about_colored_objects/test-00000-of-00001.parquet",
+              "sha256": "5c93a11b4ced66cc2afe4cd1348a36666eba10a2aeaa023c0e3609102f4ad130"
+            },
+            {
+              "file": "ruin_names/test-00000-of-00001.parquet",
+              "sha256": "d75882ee191fc60464c4c8cb6d90085a565de4476f58c8ada0fe31f0d18e3a24"
+            },
+            {
+              "file": "salient_translation_error_detection/test-00000-of-00001.parquet",
+              "sha256": "fd56dfa6d5a3c00fab3cf0a3b951a4cb2d5daf6cd0a564b4229dbc7fee13ba5e"
+            },
+            {
+              "file": "snarks/test-00000-of-00001.parquet",
+              "sha256": "4aa85c7c94ba0b6de3e5245af6af2dac4df2b979e8fc944513a317d20d77382e"
+            },
+            {
+              "file": "sports_understanding/test-00000-of-00001.parquet",
+              "sha256": "0f67780a329b4b4a22698d19f95f165b68831aad18c59236834b2c7272d37008"
+            },
+            {
+              "file": "temporal_sequences/test-00000-of-00001.parquet",
+              "sha256": "b12750a723e54541eb27f6f534d5f91650e8d406e81cd5ac23c3ee7f780ad8ce"
+            },
+            {
+              "file": "tracking_shuffled_objects_five_objects/test-00000-of-00001.parquet",
+              "sha256": "ba3cdb666a305b3bd87be668e16c66b6bc7ada0a71cd53bc25f65932a814d00a"
+            },
+            {
+              "file": "tracking_shuffled_objects_seven_objects/test-00000-of-00001.parquet",
+              "sha256": "23f26fa036a7314b86e6eca4ad985218930645b47a31f920b65da70b22f98227"
+            },
+            {
+              "file": "tracking_shuffled_objects_three_objects/test-00000-of-00001.parquet",
+              "sha256": "b3d557e426ac57f4b2194b4be5d810eb4425ff5a2c776d9b0bb6572b246c4564"
+            },
+            {
+              "file": "web_of_lies/test-00000-of-00001.parquet",
+              "sha256": "ad0a5707016259f060927a7a777bb0434c5e5293da0f6570e4e185919c434f11"
+            },
+            {
+              "file": "word_sorting/test-00000-of-00001.parquet",
+              "sha256": "7c623d20c1e38e7b1b67213d0933b7b24b18edb5b9788a33ae0b05add40f7201"
+            }
+          ]
+        },
+        {
+          "source": "fstandhartinger/jevbench/public",
+          "revision": "7625ecb1b075cfe4d09d34141d353325825eea1d",
+          "rows": 231,
+          "files": [
+            {
+              "file": "datasets/public/easy.jsonl",
+              "sha256": "231df3c2c8e88a1a8c137ebe85de96ba70fabd330849098ac7b3c52c70b7172b"
+            },
+            {
+              "file": "datasets/public/hard.jsonl",
+              "sha256": "89e9e6becb33ed88c1de7d42dcc87531b2fb64cfaef4e1986faf7c37b3f80ebb"
+            },
+            {
+              "file": "datasets/public/original.jsonl",
+              "sha256": "5c2414edb3006b8bfcb70fda433f0f9ca015759433849f8d3104328a1f7c4180"
+            }
+          ]
+        }
+      ],
+      "unique_grams": 7934363,
+      "index_sha256": "9186e85769d40273e28ab39db14a0bc18c12d9cc8862de5b58b34f9c9de1d405",
+      "coverage": "Pinned public DecisionBench, BBH and all JevBench public tiers. Private unavailable JevBench data cannot be indexed."
+    },
+    "source_revisions": [
+      {
+        "source": "LocalLLaMA/typed-decisions",
+        "config": "all",
+        "revision": "c806f6c69d734f29436f25536138547031a673d6",
+        "license": "apache-2.0",
+        "split": "train"
+      },
+      {
+        "source": "allenai/ai2_arc",
+        "config": "ARC-Easy",
+        "revision": "210d026faf9955653af8916fad021475a3f00453",
+        "license": [
+          "cc-by-sa-4.0"
+        ],
+        "split": "train"
+      },
+      {
+        "source": "allenai/ai2_arc",
+        "config": "ARC-Challenge",
+        "revision": "210d026faf9955653af8916fad021475a3f00453",
+        "license": [
+          "cc-by-sa-4.0"
+        ],
+        "split": "train"
+      },
+      {
+        "source": "tau/commonsense_qa",
+        "config": null,
+        "revision": "94630fe30dad47192a8546eb75f094926d47e155",
+        "license": [
+          "mit"
+        ],
+        "split": "train"
+      },
+      {
+        "source": "google/boolq",
+        "config": null,
+        "revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+        "license": [
+          "cc-by-sa-3.0"
+        ],
+        "split": "train"
+      }
+    ],
+    "seed": 238,
+    "heldout_fraction_target": 0.05,
+    "grouping": "normalized canonical state; contaminated groups dropped in full",
+    "explicit_exclusions": {
+      "SetFit/sst5": "Original dataset license unknown. Not silently included or called a complete experiment."
+    },
+    "statistics": {
+      "examples": 29995,
+      "groups": 23999,
+      "by_source": {
+        "LocalLLaMA/typed-decisions": 5725,
+        "allenai/ai2_arc/ARC-Easy": 2157,
+        "allenai/ai2_arc/ARC-Challenge": 1056,
+        "tau/commonsense_qa": 9196,
+        "google/boolq": 8863,
+        "synthetic/multihop": 1511,
+        "synthetic/balance": 1487
+      },
+      "by_type": {
+        "choice": 17124,
+        "noul": 10581,
+        "score": 2290
+      },
+      "synthetic_fraction": 0.09994999166527754,
+      "synthetic_steps": {
+        "6": 396,
+        "2": 366,
+        "7": 357,
+        "1": 345,
+        "3": 383,
+        "5": 397,
+        "4": 409,
+        "8": 345
+      }
+    }
+  },
+  "steps": 100,
+  "seed": 238,
+  "learning_rate": 0.0001,
+  "accumulate": 4,
+  "init": null,
+  "elapsed_s": 278.8901035487652,
+  "note": "Pilot trainer; not a completed A/B/C experiment."
+}
